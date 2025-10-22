@@ -11,6 +11,10 @@ public class Member extends Person {
         this.membershipLevel = membershipLevel;
     }
 
+    public Member() {
+        super();
+    }
+
     public String getSignUpDate() {
         return signUpDate;
     }
@@ -21,6 +25,23 @@ public class Member extends Person {
 
     public String getMembershipLevel() {
         return membershipLevel;
+    }
+
+    public void setSignUpDate(String signUpDate) {
+        this.signUpDate = signUpDate;
+    }
+
+    public void setMembershipRenewalDate(String membershipRenewalDate) {
+        this.membershipRenewalDate = membershipRenewalDate;
+    }
+
+    public void setMembershipLevel(String membershipLevel) {
+        this.membershipLevel = membershipLevel;
+    }
+
+    @Override
+    public String toString() {
+        return getName() + " " + getAdress() + " " + getMail() + " " + getPersNr() + " " + getSignUpDate() + " " + getMembershipRenewalDate() + " " + getMembershipLevel();
     }
 
 }
