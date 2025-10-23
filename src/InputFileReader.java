@@ -18,18 +18,26 @@ public class InputFileReader {
 
             while((inputTextFile = br.readLine()) != null) {
 
-                String[] inputMemberInfo = inputTextFile.split(";");
+                try {
+                    String[] inputMemberInfo = inputTextFile.split(";");
 
-                Member member = new Member (
-                        inputMemberInfo[0].trim(),
-                        inputMemberInfo[1].trim(),
-                        inputMemberInfo[2].trim(),
-                        inputMemberInfo[3].trim(),
-                        inputMemberInfo[4].trim(),
-                        inputMemberInfo[5].trim(),
-                        inputMemberInfo[6].trim()
-                );
-                memberList.add(member);
+
+                    Member member = new Member(
+                            inputMemberInfo[0].trim(),
+                            inputMemberInfo[1].trim(),
+                            inputMemberInfo[2].trim(),
+                            inputMemberInfo[3].trim(),
+                            inputMemberInfo[4].trim(),
+                            inputMemberInfo[5].trim(),
+                            inputMemberInfo[6].trim()
+                    );
+                    memberList.add(member);
+                } catch (ArrayIndexOutOfBoundsException e) {
+                    IO.println("Fel i indata fil, Program avslutas");
+                    System.exit(0);
+                }
+
+
             }
 
             memberList.removeFirst();
