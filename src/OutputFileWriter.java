@@ -8,19 +8,16 @@ import java.time.LocalDate;
 
 public class OutputFileWriter {
 
-    public void outputFileWrite(Member member) {
-
-        Path p = Paths.get("src/ptfil.txt");
-
+    public void outputFileWrite(Member member, Path filepath) {
         try {
-            if (!Files.exists(p)) {
-             Files.createFile(p);
+            if (!Files.exists(filepath)) {
+             Files.createFile(filepath);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        try(BufferedWriter bw = new BufferedWriter(new FileWriter(p.toFile(), true))) {
+        try(BufferedWriter bw = new BufferedWriter(new FileWriter(filepath.toFile(), true))) {
             bw.write(member.getName() + ", " + member.getPersNr() + " : " + LocalDate.now());
             bw.newLine();
         } catch (IOException e) {

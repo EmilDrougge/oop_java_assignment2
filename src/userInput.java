@@ -1,10 +1,12 @@
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Scanner;
 
 public class userInput {
     private final Membership membership;
     private final OutputFileWriter outputFileWriter;
-
+    Path p = Paths.get("src/ptfil.txt");
     public userInput(Membership membership, OutputFileWriter outputFileWriter) {
         this.membership = membership;
         this.outputFileWriter = outputFileWriter;
@@ -26,7 +28,7 @@ public class userInput {
             IO.println(status.getUserInput());
 
             if(status.isActive()) {
-                outputFileWriter.outputFileWrite(status.getMember());
+                outputFileWriter.outputFileWrite(status.getMember(), p);
             }
         }
     }
