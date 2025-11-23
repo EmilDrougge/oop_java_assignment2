@@ -21,7 +21,7 @@ public class InputFileReader {
                 try {
                     String[] inputMemberInfo = inputTextFile.split(";");
 
-//&&&//asdasddasdasd
+//&&&//asdasddasdasd trytry
                     Member member = new Member(
                             inputMemberInfo[0].trim(),
                             inputMemberInfo[1].trim(),
